@@ -1,0 +1,19 @@
+.header-input {
+    outline: none;
+    width: 631px;
+    height: 52px;
+    font-size: 14px;
+    color: #ffff;
+    background: #5A5C66;
+    border: 0;
+    background-image: url("images/search-logo.svg");   
+    background-repeat: no-repeat;    
+    background-position: 4px;
+
+    &::placeholder {
+        font-weight: 400;
+        font-size: 14px;
+        padding-left: 26px;
+        color: #B3B7BF;
+    }
+}
