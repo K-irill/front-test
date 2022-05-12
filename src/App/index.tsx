@@ -1,13 +1,15 @@
-import React from 'react';
-import Input from '../components/Input';
-import './App.scss';
+import React from "react";
+import Input from "../components/Input";
+import Table from "../components/Table";
+import "./App.scss";
 
 function App() {
   return (
-    <div className='content'>
+    <div className="content">
       <header>
-        <Input/>
+        <Input />
       </header>
+      <Table />
     </div>
   );
 }

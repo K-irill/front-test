@@ -1,0 +1,48 @@
+.table-posts {
+margin-top: 15px;
+
+
+    table {
+        width: 100%;
+        table-layout: fixed;
+        border-collapse: collapse;
+
+        thead {
+            background: #474955;
+            box-shadow: 0px 4px 27px rgba(230, 231, 234, 0.78);
+            color: #FFFFFF;
+            th {
+                padding: 0;
+                height: 54px;
+
+                &:nth-child(1) {
+                    width: 110px;
+                  }
+
+                &:nth-child(2) {
+                    width: 529px;
+                  }
+
+                &:nth-child(3) {
+                    width: 432px;
+                  }
+            }
+            
+        }   
+        
+        tbody {
+            .table-posts__id {
+                text-align: center;
+            }
+
+            td {
+                height: 86px;
+                border: 1px solid #E3E6EC;
+                color: #474955;
+                font-weight: 500;
+                font-size: 13px;
+                padding-left: 8px;
+            }
+        }
+    }
+}
