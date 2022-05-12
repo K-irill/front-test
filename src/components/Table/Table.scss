@@ -8,30 +8,49 @@ margin-top: 15px;
         border-collapse: collapse;
 
         thead {
+            cursor: pointer;
             background: #474955;
             box-shadow: 0px 4px 27px rgba(230, 231, 234, 0.78);
             color: #FFFFFF;
+
+            .table-posts__id_head {
+                text-align: left;
+                padding-left: 23px;
+            }
+
+            .table-posts__head_header {
+                text-align: left;
+                padding-left: 125px;
+            }
+
+            .table-posts__head_description {
+                text-align: left;
+                padding-left: 121px;
+            }
+
             th {
                 padding: 0;
                 height: 54px;
+                font-weight: 600;
+                font-size: 14px;
 
                 &:nth-child(1) {
-                    width: 110px;
+                    width: 86px;
                   }
 
                 &:nth-child(2) {
-                    width: 529px;
+                    width: 399px;
                   }
 
                 &:nth-child(3) {
-                    width: 432px;
+                    width: 303px;
                   }
             }
             
         }   
         
         tbody {
-            .table-posts__id {
+            .table-posts__id_body {
                 text-align: center;
             }
 

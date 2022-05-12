@@ -7,14 +7,14 @@ const Table: FC = () => {
       <table>
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Заголовок</th>
-            <th>Описание</th>
+            <th className="table-posts__id_head">ID</th>
+            <th className="table-posts__head_header">Заголовок</th>
+            <th className="table-posts__head_description">Описание</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td className="table-posts__id">1</td>
+            <td className="table-posts__id_body">1</td>
             <td>
               sunt aut facere repellat provident occaecati excepturi optio
               reprehenderit
@@ -26,7 +26,7 @@ const Table: FC = () => {
             </td>
           </tr>
           <tr>
-            <td className="table-posts__id">2</td>
+            <td className="table-posts__id_body">2</td>
             <td>qui est esse</td>
             <td>
               est rerum tempore vitae\nsequi sint nihil reprehenderit dolor
