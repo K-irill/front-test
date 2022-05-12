@@ -1,26 +1,24 @@
 html {
-    font-size: 15px;
+  font-size: 15px;
 }
 
-
 .header-input {
-    outline: none;
-    width: 619px;
-    padding-left: 10px;
-    height: 52px;
-    font-size: 14px;
-    color: #ffff;
-    border: 0;
-    background-color: #5A5C66;
-    background-image: url('../../../public/images/search-logo.png');
-    background-repeat: no-repeat; 
-    background-position: 590px;  
-    
+  outline: none;
+  width: 619px;
+  padding-left: 10px;
+  height: 52px;
+  font-size: 14px;
+  color: #ffff;
+  border: 0;
+  background-color: #5a5c66;
+  background-image: url("../../../public/images/search-logo.svg");
+  background-repeat: no-repeat;
+  background-position: 590px;
 
-    &::placeholder {
-        font-weight: 400;
-        font-size: 14px;
-        padding-left: 26px;
-        color: #B3B7BF;
-    }
+  &::placeholder {
+    font-weight: 400;
+    font-size: 14px;
+    padding-left: 26px;
+    color: #b3b7bf;
+  }
 }

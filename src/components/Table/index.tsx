@@ -2,14 +2,33 @@ import React, { FC } from "react";
 import "./Table.scss";
 
 const Table: FC = () => {
+  const titleСlick = (el: any) => {
+    el.classList.toggle("rotate");
+  };
+
   return (
     <div className="table-posts">
       <table>
         <thead>
           <tr>
-            <th className="table-posts__id_head">ID</th>
-            <th className="table-posts__head_header">Заголовок</th>
-            <th className="table-posts__head_description">Описание</th>
+            <th
+              className="table-posts__id_head"
+              onClick={(el) => titleСlick(el.target)}
+            >
+              ID
+            </th>
+            <th
+              className="table-posts__head_header"
+              onClick={(el) => titleСlick(el.target)}
+            >
+              Заголовок
+            </th>
+            <th
+              className="table-posts__head_description"
+              onClick={(el) => titleСlick(el.target)}
+            >
+              Описание
+            </th>
           </tr>
         </thead>
         <tbody>
