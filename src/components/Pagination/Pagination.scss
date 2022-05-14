@@ -11,6 +11,7 @@
     font-weight: 500;
     font-size: 24px;
     color: #474955;
+    text-decoration: none;
 
     &:hover {
       color: #7ebc3c;
@@ -22,11 +23,13 @@
     font-weight: 500;
     font-size: 24px;
     color: #acaebb;
+    text-decoration: none;
   }
 
   .pagination__numbers-page {
-    span {
+    a {
       cursor: pointer;
+      text-decoration: none;
       color: #474955;
       padding: 10px;
       font-weight: 700;

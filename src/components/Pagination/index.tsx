@@ -1,20 +1,16 @@
 import React, { FC } from "react";
+import { Link } from "react-router-dom";
+import { TABLE_ROUTE } from "../../Utils/consts";
 import { useAppSelector } from "../hooks/redux";
 import "./Pagination.scss";
 
 interface IPagination {
-  changePage: (number: number) => void;
-  nextPage: () => void;
-  previousPage: () => void;
   currentPage: number;
   activNextPage: boolean;
   activPreviousPage: boolean;
 }
 
 const Pagination: FC<IPagination> = ({
-  changePage,
-  nextPage,
-  previousPage,
   currentPage,
   activNextPage,
   activPreviousPage,
@@ -29,35 +25,43 @@ const Pagination: FC<IPagination> = ({
 
   return (
     <div className="pagination">
-      <span
-        className={
-          activPreviousPage
-            ? "pagination__button"
-            : "pagination__button_disabled"
-        }
-        onClick={() => previousPage()}
-      >
-        Назад
-      </span>
+      {currentPage === 1 ? (
+        <span className="pagination__button_disabled">Назад</span>
+      ) : (
+        <Link
+          to={TABLE_ROUTE + `/${currentPage - 1}`}
+          className={
+            activPreviousPage
+              ? "pagination__button"
+              : "pagination__button_disabled"
+          }
+        >
+          Назад
+        </Link>
+      )}
       <div className="pagination__numbers-page">
         {pageNumbers.map((number) => (
-          <span
+          <Link
+            to={TABLE_ROUTE + `/${number}`}
             className={number === currentPage ? "activ" : ""}
             key={number}
-            onClick={() => changePage(number)}
           >
             {number}
-          </span>
+          </Link>
         ))}
       </div>
-      <span
-        className={
-          activNextPage ? "pagination__button" : "pagination__button_disabled"
-        }
-        onClick={() => nextPage()}
-      >
-        Далее
-      </span>
+      {currentPage === Math.ceil(posts.length / postsPerPage) ? (
+        <span className="pagination__button_disabled">Далее</span>
+      ) : (
+        <Link
+          to={TABLE_ROUTE + `/${currentPage + 1}`}
+          className={
+            activNextPage ? "pagination__button" : "pagination__button_disabled"
+          }
+        >
+          Далее
+        </Link>
+      )}
     </div>
   );
 };

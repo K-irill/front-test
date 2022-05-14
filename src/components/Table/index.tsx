@@ -1,50 +1,33 @@
 import React, { FC, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { useAppSelector } from "../hooks/redux";
 import Pagination from "../Pagination";
 import { ProgressLoader } from "../ProgressLoader";
+import TableHead from "../TableHead";
 import "./Table.scss";
 
 const Table: FC = () => {
   const { posts, postsPerPage, isLoading, error } = useAppSelector(
     (state) => state.postReduser
   );
-  const [currentPage, setCurrentPage] = useState(1);
+
+  const { id = 1 } = useParams();
 
   const [isActivNextPage, setIsActivNextPage] = useState(true);
   const [isActivPreviousPage, setIsActivPreviousPage] = useState(true);
 
-  const lastPostsIndex = currentPage * postsPerPage;
+  const lastPostsIndex = Number(id) * postsPerPage;
   const firstPostsIndex = lastPostsIndex - postsPerPage;
   const currentPosts = posts.slice(firstPostsIndex, lastPostsIndex);
 
-  const changePage = (number: number) => {
-    setCurrentPage(number);
-  };
-
   useEffect(() => {
-    if (currentPage === 1) return setIsActivPreviousPage(false);
+    if (id === 1) return setIsActivPreviousPage(false);
     setIsActivPreviousPage(true);
 
-    if (currentPage === Math.ceil(posts.length / postsPerPage))
+    if (Number(id) === Math.ceil(posts.length / postsPerPage))
       return setIsActivNextPage(false);
     setIsActivNextPage(true);
-  }, [currentPage, posts.length, postsPerPage]);
-
-  const changeNextPage = () => {
-    if (currentPage === Math.ceil(posts.length / postsPerPage)) return;
-
-    setCurrentPage((prev) => prev + 1);
-  };
-
-  const changePreviousPage = () => {
-    if (currentPage === 1) return;
-
-    setCurrentPage((prev) => prev - 1);
-  };
-
-  const titleСlick = (el: any) => {
-    el.classList.toggle("rotate");
-  };
+  }, [id, posts.length, postsPerPage]);
 
   const getPosts = currentPosts.map((post) => (
     <tr className="table-posts__body" key={post.id}>
@@ -60,40 +43,18 @@ const Table: FC = () => {
         <ProgressLoader />
       ) : error ? (
         <p>{`Произошла ошибка! Информация об ошибке: ${error} `}</p>
-      ) : (
+      ) : currentPosts.length ? (
         <table>
-          <thead>
-            <tr>
-              <th
-                className="table-posts__id_head"
-                onClick={(el) => titleСlick(el.target)}
-              >
-                ID
-              </th>
-              <th
-                className="table-posts__head_header"
-                onClick={(el) => titleСlick(el.target)}
-              >
-                Заголовок
-              </th>
-              <th
-                className="table-posts__head_description"
-                onClick={(el) => titleСlick(el.target)}
-              >
-                Описание
-              </th>
-            </tr>
-          </thead>
+          <TableHead />
           <tbody>{getPosts}</tbody>
         </table>
+      ) : (
+        <p>По вашему запросу ничего не найдено!</p>
       )}
       <Pagination
-        changePage={changePage}
-        nextPage={changeNextPage}
         activNextPage={isActivNextPage}
         activPreviousPage={isActivPreviousPage}
-        previousPage={changePreviousPage}
-        currentPage={currentPage}
+        currentPage={Number(id)}
       />
     </div>
   );
