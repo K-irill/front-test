@@ -39,7 +39,8 @@ export const postsSlice = createSlice({
             post.id === Number(action.payload) ||
             post.body.replace(/\s+/g, "").trim() ===
               action.payload.replace(/\s+/g, "") ||
-            post.title.trim() === action.payload
+            post.title.replace(/\s+/g, "").trim() ===
+              action.payload.replace(/\s+/g, "")
         );
       }
     },
