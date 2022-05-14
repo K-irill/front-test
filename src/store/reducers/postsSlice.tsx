@@ -4,12 +4,14 @@ import { fetchPosts } from "./actionCreators";
 
 interface IPostsState {
   posts: IPosts[];
+  postsPerPage: number;
   isLoading: boolean;
   error: string;
 }
 
 const initialState: IPostsState = {
   posts: [],
+  postsPerPage: 10,
   isLoading: false,
   error: "",
 };
