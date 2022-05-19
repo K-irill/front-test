@@ -10,7 +10,7 @@ const AppRouter: FC = () => {
       {publicRoutes.map(({ path, Element }) => (
         <Route key={path} path={path} element={Element} />
       ))}
-      <Route path="/" element={<Navigate to={TABLE_ROUTE + "/:1"} />} />
+      <Route path="/" element={<Navigate to={TABLE_ROUTE + "/1"} />} />
       <Route path="*" element={<TablePosts />} />;
     </Routes>
   );
